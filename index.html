@@ -10,9 +10,15 @@
     </head>
 
     <body>
-        <div id="app">
-            <img v-bind:src="img" v-bind:alt="name"/>
-            <h1>
+        <div id="app" v-bind:style="{ background: '#' + color }">
+            <img 
+                v-on:mouseover="toggleShowPrices" 
+                v-on:mouseout="toggleShowPrices" 
+                v-bind:src="img" 
+                v-bind:alt="name"/>
+
+            <!-- v-bind:class : con ternari -->
+            <h1 v-bind:class="changePercent > 0 ? 'green' : 'red'">
                 {{ name }}
 
                 <!-- v-if permite que solo se muestre esta propiedad si x elemente cumple con una condición. 
@@ -23,10 +29,16 @@
                      👍
                 </span>
                 <span v-else-if="changePercent < 0">
-                     🍔 
+                     👍
                 </span>
                 <span v-else>
-                     🇱🇻 
+                     👍
+                </span>
+
+                <!-- v-on: directiva que permite ejecutar x código según evento -->
+                <span v-on:click="toggleShowPrices">
+                    <!-- En base al valor de toggleShowPrices mostraremos un texto u otro -->
+                    {{ showPrices ? 'Ocultar' : 'Ver' }}
                 </span>
 
                 <!-- 
@@ -52,16 +64,30 @@
                 v-for: permite renderizar una lista 
                 v-bind:key : permite identificar de manera unívoca a los elementos de la lista
             -->
-            <ul>
-                <!--<li v-for="price in prices" v-bind:key="price">{{ price }}</li>-->
+            <!--<ul>
+                <li v-for="price in prices" v-bind:key="price">{{ price }}</li>
                 <li v-for="(element, indice) in prices" v-bind:key="element">
                     {{ indice }} - {{ element }}
                 </li>
-            </ul>
+            </ul>-->
 
-            <ul>
-                <li v-for="(price, indice) in pricesWithDays" v-bind:key="price.day">
+            <ul v-show="showPrices">
+                <!-- 
+                    v-bind:class : con objetos 
+                    las class son compatibles en conjunto con el uso de v-bind:class
+                -->
+                <li 
+                    class="uppercase"
+                    v-bind:class="{
+                        orange : price.value == priceCurrent,
+                        red : price.value < priceCurrent,
+                        green : price.value > priceCurrent
+                    }"
+                    v-for="(price, indice) in pricesWithDays" 
+                    v-bind:key="price.day">
+
                     {{ indice }} - {{ price.day }} - {{ price.value }}
+
                 </li> 
             </ul>
 
