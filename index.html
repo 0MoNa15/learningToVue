@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Curso Básico de Vue.js | Platzi</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <img v-bind:src="img" v-bind:alt="name"/>
+            <h1>
+                {{ name }}
+
+                <!-- v-if permite que solo se muestre esta propiedad si x elemente cumple con una condición. 
+                    Oculta el resto de elementos.
+                    Este es recomendado si el elemento va a ser fijo o solo va a cambiar una vez
+                 -->
+                <span v-if="changePercent > 0">
+                     👍
+                </span>
+                <span v-else-if="changePercent < 0">
+                     🍔 
+                </span>
+                <span v-else>
+                     🇱🇻 
+                </span>
+
+                <!-- 
+                    v-if permite que solo se muestre esta propiedad si x elemente cumple con una condición. 
+                    Cambia el display del elemento. 
+                    Este es recomendado si el elemento va a estar cambiando constantemente para evitar 
+                    tanta mut ación.
+                -->
+
+                <!--<span v-show="changePercent > 0">
+                     👍
+                </span>
+                <span v-show="changePercent < 0">
+                     🍔 
+                </span>
+                <span v-show="changePercent == 0">
+                     🇱🇻 
+                </span>-->
+
+            </h1>
+
+            <!-- 
+                v-for: permite renderizar una lista 
+                v-bind:key : permite identificar de manera unívoca a los elementos de la lista
+            -->
+            <ul>
+                <!--<li v-for="price in prices" v-bind:key="price">{{ price }}</li>-->
+                <li v-for="(element, indice) in prices" v-bind:key="element">
+                    {{ indice }} - {{ element }}
+                </li>
+            </ul>
+
+            <ul>
+                <li v-for="(price, indice) in pricesWithDays" v-bind:key="price.day">
+                    {{ indice }} - {{ price.day }} - {{ price.value }}
+                </li> 
+            </ul>
+
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+
+</html>
