@@ -19,7 +19,7 @@
 
             <!-- v-bind:class : con ternari -->
             <h1 v-bind:class="changePercent > 0 ? 'green' : 'red'">
-                {{ name }}
+                {{ title }}
 
                 <!-- v-if permite que solo se muestre esta propiedad si x elemente cumple con una condición. 
                     Oculta el resto de elementos.
@@ -59,6 +59,14 @@
                 </span>-->
 
             </h1>
+
+            <!-- v-model: permite realizar cambios en la vista    -->
+            <input v-model="value">
+                <span>
+                    {{ convertedValue }}
+                </span>
+            </input>
+
 
             <!-- 
                 v-for: permite renderizar una lista 

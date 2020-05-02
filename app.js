@@ -4,8 +4,10 @@ new Vue({
     data(){
         return {
              name: 'Bitcoin',
+             symbol: 'BTN',
              img: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
              changePercent: -10,
+             value: 0, 
              priceCurrent: 8400,
              prices:  [8400, 7900, 8200, 9000, 9400, 10000, 10200],
              pricesWithDays:  [
@@ -27,7 +29,34 @@ new Vue({
         this.showPrices = !this.showPrices,
         this.color = this.color.split('').reverse().join('')
       }
+    },
+
+    // Funciones que siempre devuelven un valor
+    computed: {
+
+      // Esta propiedad title, automáticamente cambiará si cambia el name o el symbol
+      title(){
+        return `${this.name} - ${this.symbol}`
+      },
+      convertedValue(){
+        if(!this.value){
+          return 0
+        } 
+        
+        return this.value / this.priceCurrent
+      }
+    }, 
+
+    // Funciones que ejecutan un código, 
+    // sus nombres deben ser iguales que las variables en data
+    // pueden ser utilizadas como disparadores
+    watch:{
+      showPrices(newValue, oldValue){
+        console.log(newValue, oldValue)
+      }
     }
+
+
 })
 
 
