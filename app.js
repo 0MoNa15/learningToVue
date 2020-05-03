@@ -1,4 +1,3 @@
-// Componente que permitirá colocar titulos
 Vue.component('CoinDetail', {
 
   props: ['coin'],
@@ -9,8 +8,8 @@ Vue.component('CoinDetail', {
       value: 0
     }
   },
+
   computed: {
-    // Esta propiedad title, automáticamente cambiará si cambia el name o el symbol
      title(){
       return `${this.coin.name} - ${this.coin.symbol}`
     },
@@ -19,7 +18,7 @@ Vue.component('CoinDetail', {
       if(!this.value){
         return 0
       } 
-      
+        
       return this.value / this.coin.priceCurrent
     }
   },
@@ -27,6 +26,9 @@ Vue.component('CoinDetail', {
   methods:{
     toggleShowPrices(){
       this.showPrices = !this.showPrices
+
+      this.$emit('change-color', 
+      this.showPrices ? 'FF96C8' : '3D3D3D')
     }
   },
 
@@ -94,14 +96,15 @@ new Vue({
                 ],
               },
               color: 'f4f4f4'
-              //showPrices: false,
         }
     },
 
-    /*methods: {
-      toggleShowPrices(){
-        this.showPrices = !this.showPrices,
-        this.color = this.color.split('').reverse().join('')
+    methods: {
+      updateColor(color){
+        this.color = color || this.color
+        .split('')
+        .reverse()
+        .join('')
       }
-    }*/
+    }
 })
