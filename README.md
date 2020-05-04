@@ -7,3 +7,29 @@
 <h2 align="center">Aprendiendo Vue.js</h2>
 
 Esto es un proyecto utilizado para comenzar el aprendizaje acerca de Vue.js.
+
+
+# platzi-exchange
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
