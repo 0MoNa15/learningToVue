@@ -86,7 +86,7 @@ export default {
       /*if (!this.filter) {
         return this.assets
       }*/
-            console.log('TEST filteredAssets')
+      console.log('TEST filteredAssets')
 
       const altOrder = this.sortOrder == 1 ? -1 : 1
 
