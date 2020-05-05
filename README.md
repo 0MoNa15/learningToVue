@@ -7,3 +7,9 @@
 <h2 align="center">Aprendiendo Vue.js</h2>
 
 Esto es un proyecto utilizado para comenzar el aprendizaje acerca de Vue.js.
+
+
+
+## Visualización del proyecto
+
+- https://cryptocurrency-exchange-vue-mona15.netlify.app/
