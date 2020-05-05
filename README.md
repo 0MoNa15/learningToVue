@@ -1,9 +1,24 @@
-<p align="center"><a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://picsum.photos/500/500" alt="Vue logo"></a></p>
+# Ejemplo platzi-exchange
 
-<p>
+## Project setup
+```
+npm install
+```
 
-</p>
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-<h2 align="center">Aprendiendo Vue.js</h2>
+### Compiles and minifies for production
+```
+npm run build
+```
 
-Esto es un proyecto utilizado para comenzar el aprendizaje acerca de Vue.js.
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
